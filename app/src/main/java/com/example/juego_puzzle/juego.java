@@ -78,5 +78,21 @@ public class juego extends AppCompatActivity {
         tablero[15] = imb15;
     }
 
+    private void cargarBotones(){
+        botonReiniciar = findViewById(R.id.botonJuegoReiniciar);
+        botonSalir = findViewById(R.id.botonJuegoSalir);
+        botonReiniciar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+               // init();
+            }
+        });
 
+        botonSalir.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
+    }
 }
