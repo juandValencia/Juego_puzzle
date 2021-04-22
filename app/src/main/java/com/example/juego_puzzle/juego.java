@@ -159,7 +159,9 @@ public class juego extends AppCompatActivity {
                         imgb.setEnabled(true);
                         bloqueo = false;
                         primero = null;
-                        puntuacion--;
+                        if(puntuacion>0){
+                            puntuacion--;
+                        }
                         textoPuntuacion.setText("Puntuación: " + puntuacion);
                     }
                 }, 1000);
