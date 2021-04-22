@@ -115,4 +115,13 @@ public class juego extends AppCompatActivity {
         };
         fondo = R.drawable.fondo;
     }
+    private ArrayList<Integer> barajar(int longitud){
+        ArrayList<Integer> result = new ArrayList<Integer>();
+        for(int i=0; i<longitud*2; i++){
+            result.add(i % longitud);
+        }
+        Collections.shuffle(result);
+        // System.out.println(Arrays.toString(result.toArray()));
+        return result;
+    }
 }
