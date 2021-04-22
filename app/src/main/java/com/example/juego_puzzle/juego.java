@@ -24,7 +24,7 @@ public class juego extends AppCompatActivity {
     TextView textoPuntuacion;
     int puntuacion;
     int aciertos;
-
+//terminamos
     //imagenes
     int[] imagenes;
     int fondo;
