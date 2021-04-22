@@ -40,7 +40,7 @@ public class juego extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.juego);
-        //init();
+        init();
     }
     private void cargarTablero(){
         imb00 = findViewById(R.id.boton00);
@@ -84,7 +84,7 @@ public class juego extends AppCompatActivity {
         botonReiniciar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-               // init();
+                init();
             }
         });
 
@@ -165,5 +165,39 @@ public class juego extends AppCompatActivity {
                 }, 1000);
             }
         }
+    }
+    private void init(){
+        cargarTablero();
+        cargarBotones();
+        cargarTexto();
+        cargarImagenes();
+        arrayDesordenado = barajar(imagenes.length);
+        for(int i=0; i<tablero.length; i++){
+            tablero[i].setScaleType(ImageView.ScaleType.CENTER_CROP);
+            tablero[i].setImageResource(imagenes[arrayDesordenado.get(i)]);
+            //tablero[i].setImageResource(fondo);
+        }
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                for(int i=0; i<tablero.length; i++){
+                    tablero[i].setScaleType(ImageView.ScaleType.CENTER_CROP);
+                    //tablero[i].setImageResource(imagenes[arrayDesordenado.get(i)]);
+                    tablero[i].setImageResource(fondo);
+                }
+            }
+        }, 500);
+        for(int i=0; i<tablero.length; i++) {
+            final int j = i;
+            tablero[i].setEnabled(true);
+            tablero[i].setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if(!bloqueo)
+                        comprobar(j, tablero[j]);
+                }
+            });
+        }
+
     }
 }
