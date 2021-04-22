@@ -18,5 +18,23 @@ import java.util.Arrays;
 import java.util.Collections;
 
 public class juego extends AppCompatActivity {
+    ImageButton imb00, imb01, imb02, imb03, imb04, imb05, imb06, imb07, imb08, imb09, imb10, imb11, imb12, imb13, imb14, imb15;
+    ImageButton[] tablero = new ImageButton[16];
+    Button botonReiniciar, botonSalir;
+    TextView textoPuntuacion;
+    int puntuacion;
+    int aciertos;
+
+    //imagenes
+    int[] imagenes;
+    int fondo;
+
+    //variables del juego
+    ArrayList<Integer> arrayDesordenado;
+    ImageButton primero;
+    int numeroPrimero, numeroSegundo;
+    boolean bloqueo = false;
+    final Handler handler = new Handler();
+
 
 }
