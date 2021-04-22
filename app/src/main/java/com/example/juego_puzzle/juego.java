@@ -124,4 +124,46 @@ public class juego extends AppCompatActivity {
         // System.out.println(Arrays.toString(result.toArray()));
         return result;
     }
+    private void comprobar(int i, final ImageButton imgb){
+        if(primero == null){
+            primero = imgb;
+            primero.setScaleType(ImageView.ScaleType.CENTER_CROP);
+            primero.setImageResource(imagenes[arrayDesordenado.get(i)]);
+            primero.setEnabled(false);
+            numeroPrimero = arrayDesordenado.get(i);
+        } else {
+            bloqueo = true;
+            imgb.setScaleType(ImageView.ScaleType.CENTER_CROP);
+            imgb.setImageResource(imagenes[arrayDesordenado.get(i)]);
+            imgb.setEnabled(false);
+            numeroSegundo = arrayDesordenado.get(i);
+            if(numeroPrimero == numeroSegundo){
+                primero = null;
+                bloqueo = false;
+                aciertos++;
+                puntuacion++;
+                textoPuntuacion.setText("Puntuación: " + puntuacion);
+                if(aciertos == imagenes.length){
+                    Toast toast = Toast.makeText(getApplicationContext(), "Has ganado!!", Toast.LENGTH_LONG);
+                    toast.show();
+                }
+            } else {
+                handler.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        primero.setScaleType(ImageView.ScaleType.CENTER_CROP);
+                        primero.setImageResource(fondo);
+                        primero.setEnabled(true);
+                        imgb.setScaleType(ImageView.ScaleType.CENTER_CROP);
+                        imgb.setImageResource(fondo);
+                        imgb.setEnabled(true);
+                        bloqueo = false;
+                        primero = null;
+                        puntuacion--;
+                        textoPuntuacion.setText("Puntuación: " + puntuacion);
+                    }
+                }, 1000);
+            }
+        }
+    }
 }
