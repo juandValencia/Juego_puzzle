@@ -95,4 +95,24 @@ public class juego extends AppCompatActivity {
             }
         });
     }
+    private void cargarTexto(){
+        textoPuntuacion = findViewById(R.id.texto_puntuacion);
+        puntuacion = 0;
+        aciertos = 0;
+        textoPuntuacion.setText("Puntuacion: " + puntuacion);
+    }
+
+    private void cargarImagenes(){
+        imagenes = new int[]{
+                R.drawable.la0,
+                R.drawable.la1,
+                R.drawable.la2,
+                R.drawable.la3,
+                R.drawable.la4,
+                R.drawable.la5,
+                R.drawable.la6,
+                R.drawable.la7
+        };
+        fondo = R.drawable.fondo;
+    }
 }
