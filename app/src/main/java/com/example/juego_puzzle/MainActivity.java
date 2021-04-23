@@ -9,7 +9,7 @@ import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
 
-    Button play, salir;
+    Button play, salir,credito;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -17,6 +17,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         play = findViewById(R.id.botonMainJugar);
         salir = findViewById(R.id.botonMainSalir);
+        credito=findViewById(R.id.botonCreditos);
 
         play.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -32,10 +33,22 @@ public class MainActivity extends AppCompatActivity {
                 finish();
             }
         });
+
+        credito.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                iniciarCreditos();
+            }
+        });
+
     }
 
     private void iniciarJuego(){
         Intent i = new Intent(this, juego.class);
+        startActivity(i);
+    }
+    private void iniciarCreditos(){
+        Intent i = new Intent(this, Creditos.class);
         startActivity(i);
     }
 }
