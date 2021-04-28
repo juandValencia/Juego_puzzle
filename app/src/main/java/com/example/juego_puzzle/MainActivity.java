@@ -30,6 +30,9 @@ public class MainActivity extends AppCompatActivity {
         salir.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+
+                Intent salida=new Intent( Intent.ACTION_MAIN); //Llamando a la activity principal
                 finish();
             }
         });
