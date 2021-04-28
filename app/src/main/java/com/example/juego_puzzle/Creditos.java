@@ -19,7 +19,7 @@ public class Creditos extends AppCompatActivity {
         Regresar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                atras();
+                finish();
             }
         });
 
