@@ -1,2 +1,4 @@
 # Juego_puzzle
- Juego nativo de android 
+ Juego nativo de android Tipo Puzzlwe
+ 
+
